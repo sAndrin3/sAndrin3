@@ -1,231 +1,85 @@
-<svg fill="none" width="800" height="700" xmlns="http://www.w3.org/2000/svg">
-    <foreignObject width="800px" height="1000">
-        <div xmlns="http://www.w3.org/1999/xhtml">
-            <style>
-                @import url('https://fonts.googleapis.com/css?family=Ubuntu');
-                @import url('https://fonts.googleapis.com/css?family=Ubuntu+Mono');
+<svg fill="none" width="800" height="200" xmlns="http://www.w3.org/2000/svg">
+	<foreignObject width="800px" height="200">
+		<div xmlns="http://www.w3.org/1999/xhtml">
+			<style>			
+				@keyframes gradientBackground {
+					0% {
+						background-position: 0% 50%;
+					}
+					50% {
+						background-position: 100% 50%;
+					}
+					100% {
+						background-position: 0% 50%;
+					}
+				}
+			
+				.container {
+					font-family:
+						system-ui,
+						-apple-system,
+						'Segoe UI',
+						Roboto,
+						Helvetica,
+						Arial,
+						sans-serif,
+						'Apple Color Emoji',
+						'Segoe UI Emoji';
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					justify-content: center;
+					margin: 0;
+					width: 100%;
+					height: 200px;
+					background: linear-gradient(-45deg, #09009B, #3EDBF0, #610094);
+					background-size: 600% 400%;
+					animation: gradientBackground 10s ease infinite;
+					border-radius: 10px;
+					color: white;
+					text-align: center;
+				}
+        
+        .wrapper {
+          height: 200px;
+          /*This part is important for centering*/
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
 
-                #container {
-                    background: linear-gradient(45deg, #57003f 0%, #f57453 100%);
-                    font-family: Ubuntu;
-                    font-weight: bold;
-                    border-radius: 20px 60px 30px;
-                    margin: 0;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    height: 700px;
+        .typing-demo {
+          width: 33ch;
+          animation: typing 4s steps(37), blink .3s step-end infinite alternate;
+          white-space: nowrap;
+          overflow: hidden;
+          border-right: 3px solid;
+          font-family: monospace;
+          font-size: 2em;
+        }
 
-                }
-
-                #ide {
-                    width: 400px;
-                    height: 300px;
-                    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.5);
-                }
-
-                #ide__bar {
-                    display: flex;
-                    width: 100%;
-                    height: 40px;
-                    align-items: center;
-                    padding: 0 8px;
-                    box-sizing: border-box;
-                    border-top-left-radius: 5px;
-                    border-top-right-radius: 5px;
-                    background: #3c3b37;
-                }
-
-                #bar__buttons {
-                    display: flex;
-                    align-items: center;
-                }
-
-                .bar__button {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    padding: 0;
-                    margin-right: 5px;
-                    font-size: 8px;
-                    height: 15px;
-                    width: 15px;
-                    box-sizing: border-box;
-                    border: none;
-                    border-radius: 100%;
-                    text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.2);
-                    box-shadow: 0px 0px 1px 0px #41403A, 0px 1px 1px 0px #474642;
-                }
-
-                .bar__button:hover {
-                    cursor: pointer;
-                }
-
-                .bar__button:focus {
-                    outline: none;
-                }
-
-                #bar__button--exit {
-                    background: #FF5F57FF;
-                    background-clip: padding-box;
-                }
-
-                #bar__button--minimize {
-                    background: #FEBC2EFF;
-                    background-clip: padding-box;
-                }
-
-                #bar__button--focus {
-                    background: #28C840FF;
-                    background-clip: padding-box;
-                }
-
-                #bar__user {
-                    background: #272822FF;
-                    height: 70%;
-                    border-radius: 7px 7px 0px 0px;
-                    padding-top: 10px;
-                    padding-left: 10px;
-                    padding-right: 10px;
-                    color: #d5d0ce;
-                    margin-left: 10px;
-                    font-family: Arial, Helvetica, sans-serif;
-                    font-weight: 400;
-                    font-size: 15px;
-                    line-height: 15px;
-                }
-
-                #bar__user a {
-                    font-weight: 100;
-                    font-size: 10px;
-                    margin-left: 10px;
-                }
-
-                #ide__body {
-                    background: #272822FF;
-                    font-family: 'Cascadia Mono', monospace;
-                    font-weight: 400;
-                    height: calc(100% - 30px);
-                    padding-top: 2px;
-                    padding-left: 2px;
-                    margin-top: -1px;
-                }
-
-                #ide__prompt {
-                    display: flex;
-                }
-
-                .code {
-                    color: #DCBDFBFF;
-                    margin: 20px;
-                }
-
-                #code-snippet a {
-                    color: #F47067FF;
-                }
-
-                #code-snippet a#et {
-                    color: #96D0FFFF;
-                }
-
-                #code-snippet a#fn {
-                    color: #69B1F8FF;
-                }
-
-                #code-snippet p {
-                    margin-left: 20px;
-                }
-
-
-
-                @keyframes blink {
-                    0% {
-                        background: #ffffff;
-                    }
-
-                    49% {
-                        background: #ffffff;
-                    }
-
-                    60% {
-                        background: transparent;
-                    }
-
-                    99% {
-                        background: transparent;
-                    }
-
-                    100% {
-                        background: #ffffff;
-                    }
-                }
-
-                @media (max-width: 600px) {
-                    #ide {
-                        max-height: 90%;
-                        width: 90%;
-                    }
-                }
-
-
-                .typing-demo {
-                    width: 28ch;
-                    height: 4ch;
-                    animation: typing 2s steps(15), blink .3s step-end infinite alternate;
-                    white-space: nowrap;
-                    overflow: hidden;
-                    border-right: 3px solid;
-                    color: white;
-                }
-
-                @keyframes typing {
-                    from {
-                        width: 0
-                    }
-                }
-
-                @keyframes blink {
-                    50% {
-                        border-color: transparent
-                    }
-                }
-            </style>
-
-            <main id="container">
-                <div id="ide">
-                    <!-- ide Bar -->
-                    <section id="ide__bar">
-                        <div id="bar__buttons">
-                            <button class="bar__button" id="bar__button--exit"></button>
-                            <button class="bar__button" id="bar__button--minimize"></button>
-                            <button class="bar__button" id="bar__button--focus"></button>
-                        </div>
-                        <p id="bar__user">🇯🇸 index.js <a>&#10005;</a></p>
-                    </section>
-                    <!-- ide Body -->
-                    <section id="ide__body">
-                        <div id="ide__prompt">
-                            <div class="code">
-                                <div id="code-snippet">
-                                    <a>import</a> { getInfo } <a>from</a> <a id="et">'@SandrineInfo';<br /></a>
-                                    <br />
-                                    <a>async function</a> Me() {<br />
-                                    <p><a>const</a> me = <a>await</a> getInfo();<br /></p>
-                                    <div class="typing-demo">
-                                        <p><a>alert</a>(<a id="fn">JSON.stringify</a>(me));<br /></p>
-                                    </div>
-                                    }
-                                </div>
-                            </div>
-
-                            <!-- <div class="typing-demo">
-                                whoami
-                            </div> -->
-                        </div>
-                    </section>
-                </div>
-            </main>
-
+        @keyframes typing {
+          from {
+            width: 0
+          }
+        }
+            
+        @keyframes blink {
+          50% {
+            border-color: transparent
+          }
+        }
+			</style>
+			<div class="container">
+        <div class="wrapper">
+            <div class="typing-demo">
+		    
+              Hello there. I'm <b>Malanga Sandrine</b>.
+		    
+		    
+            </div>          
         </div>
-    </foreignObject>
+			</div>
+		</div>
+	</foreignObject>
 </svg>
