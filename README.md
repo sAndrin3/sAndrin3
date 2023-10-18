@@ -1,5 +1,5 @@
 
-<h1 align="center" > Hi, I am Sandrine 👋</h1>
+<h1 align="center" > Hi, I am Malanga👋</h1>
 
 <p align="center">
 <img src="header.svg" />
@@ -8,7 +8,7 @@
 <hr/>
 
 
-I am a Computer Science undergraduate from Nairobi, Kenya. I am a fullsatck software developer. I am not a coder, I just love solving problems with code.
+I am a Computer Science graduate from Nairobi, Kenya. I am a .NET developer and also a fullstack software developer. I am not a coder, I just love solving problems with code.
 
 <div align="center">
 <br/>
