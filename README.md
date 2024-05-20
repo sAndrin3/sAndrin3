@@ -8,7 +8,7 @@
 <hr/>
 
 
-I am a Computer Science graduate from Nairobi, Kenya. I am a .NET developer and also a fullstack software developer. I am not a coder, I just love solving problems with code.
+I am a Computer Science graduate from Nairobi, Kenya. A .NET developer and also a fullstack software developer. I am not a coder, I just love solving problems with code.
 
 <div align="center">
 <br/>
